@@ -533,3 +533,158 @@ user.welcomeMessage();  // Output: Welcome undefined to the website
 > **Note**: Be careful when using arrow functions as methods inside objects, as they do not bind their own `this`.
 
 ---
+## Hoisting in JavaScript
+
+**Hoisting** refers to JavaScript's behavior of moving declarations (variables and functions) to the top of their scope before code execution. Only the declarations are hoisted, not the initializations.
+
+### How Hoisting Works:
+- **Variable hoisting:** Variables declared with `var` are initialized with `undefined`. However, variables declared with `let` and `const` are hoisted but not initialized, resulting in a **ReferenceError** if accessed before their declaration.
+- **Function hoisting:** Function declarations are hoisted completely, making them callable before they are defined in the code.
+
+### Example:
+```javascript
+console.log(x);  // Output: undefined (var is hoisted)
+var x = 10;
+
+console.log(greeting());  // Output: "Hello" (function is hoisted)
+function greeting() {
+  return "Hello";
+}
+```
+
+> **Note:** It's best practice to declare variables at the top of their scope to avoid confusion.
+
+---
+
+## Immediately Invoked Function Expressions (IIFE)
+
+An **IIFE** is a function that runs as soon as it is defined. It helps avoid polluting the global scope, which is particularly useful when working with larger applications.
+
+### Example without IIFE:
+```javascript
+function one() {
+  console.log("Without IIFE");
+}
+one();  // Output: "Without IIFE"
+```
+
+### Example with IIFE:
+```javascript
+(function two() {
+  console.log("With IIFE");
+})();  // Output: "With IIFE"
+```
+
+### IIFE with Parameters:
+```javascript
+((name) => {
+  console.log(`This is the name: ${name}`);
+})('Prathamesh');  // Output: "This is the name: Prathamesh"
+```
+
+---
+
+## Event Handling in JavaScript
+
+An **event** is an action that occurs in the browser, like a user clicking a button. Events can be handled using **event listeners** and functions.
+
+### Example of Event Listener:
+```javascript
+document.getElementById("myButton").addEventListener("click", function() {
+  alert("Button clicked!");
+});
+```
+
+> **Common events**: `click`, `mouseover`, `keydown`, `submit`, etc.
+
+---
+
+## Loops in JavaScript
+
+### **For Loop:**
+Used for iterating over arrays or running a block of code a specific number of times.
+```javascript
+let myArray = [1, 2, 3, 4];
+for (let i = 0; i < myArray.length; i++) {
+  console.log(myArray[i]);
+}
+```
+
+### **Break and Continue:**
+- **Break**: Terminates the loop.
+- **Continue**: Skips the current iteration and moves to the next one.
+
+### **For Of Loop:**
+Efficient for iterating over iterable objects like arrays and strings.
+```javascript
+let names = ['Prathamesh', 'Nikhil', 'Ajinkya'];
+for (const name of names) {
+  console.log(name);
+}
+```
+
+### **For In Loop:**
+Used for iterating over the properties of an object or the indexes of an array.
+```javascript
+let myArray = [10, 20, 30];
+for (const index in myArray) {
+  console.log(index);  // Output: 0, 1, 2 (index positions)
+}
+```
+
+### **For Each Loop:**
+`forEach` is a method that runs a function for each array element.
+```javascript
+let loop = [1, 2, 3, 4];
+loop.forEach(function(item) {
+  console.log(item);  // Output: 1, 2, 3, 4
+});
+```
+
+> `forEach` does not return a new array, unlike `map` and `filter`.
+
+---
+
+## Maps in JavaScript
+
+**Maps** are used to store key-value pairs and ensure that each key is unique.
+
+### Example:
+```javascript
+let map = new Map();
+map.set('name', 'Prathamesh');
+map.set('id', 101);
+
+console.log(map.get('name'));  // Output: "Prathamesh"
+```
+
+> Maps differ from objects because they can store objects as keys and preserve the order of insertion.
+
+---
+
+## Higher-Order Functions
+
+### **Filter:**
+The `filter()` method creates a new array with all elements that pass the test implemented by the provided function.
+```javascript
+let myArray = [1, 2, 3, 4, 5, 6];
+let newArr = myArray.filter(num => num < 4);
+console.log(newArr);  // Output: [1, 2, 3]
+```
+
+### **Map:**
+The `map()` method creates a new array by applying a function to each element of the original array.
+```javascript
+let numbers = [1, 2, 3, 4];
+let doubled = numbers.map(num => num * 2);
+console.log(doubled);  // Output: [2, 4, 6, 8]
+```
+
+### **Reduce:**
+The `reduce()` method executes a reducer function on each element of the array, resulting in a single output value.
+```javascript
+let sum = [1, 2, 3, 4].reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+console.log(sum);  // Output: 10
+```
+
+---
