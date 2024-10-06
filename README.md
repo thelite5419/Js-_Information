@@ -220,3 +220,139 @@ console.log(nestedArray);  // Output: [[1, 2], [3, 4]]
 To flatten such nested arrays, you can use the `flat()` method as shown earlier.
 
 ---
+## Working with Objects in JavaScript
+
+In JavaScript, **objects** are a fundamental way to group and store data. They are used to represent entities, where properties (key-value pairs) hold information related to that entity.
+
+### 1. Ways to Initialize an Object
+
+There are two primary ways to initialize an object in JavaScript:
+
+#### 1.1 Literal Notation
+This is the most common and straightforward way to create an object. You define the object using curly braces `{}`.
+
+```javascript
+const JsUser = {
+  Fname: 'Prathamesh',
+  id: 101,
+  age: 20,
+  email: 'prathameshpise6@gmail.com',
+  "name IS": "thelite"  // Using quotes for keys with spaces
+};
+```
+
+#### 1.2 Singleton/Object Constructor
+A **singleton** object is created using the `new Object()` constructor.
+
+```javascript
+const instaUser = new Object();  // Creates an empty singleton object
+const anotherUser = {};          // Creates an empty non-singleton object (literal notation)
+```
+
+### 2. Accessing Object Properties
+
+You can access the properties of an object in two ways:
+
+1. **Dot notation** (for standard keys):
+   ```javascript
+   console.log(JsUser.Fname);  // Output: "Prathamesh"
+   ```
+
+2. **Bracket notation** (for keys with spaces or symbols):
+   ```javascript
+   console.log(JsUser["name IS"]);  // Output: "thelite"
+   ```
+
+### 3. Modifying Object Properties
+
+You can easily modify the properties of an object after initialization:
+
+```javascript
+instaUser.id = "thelite_editx";
+instaUser.email = "theprathamesh07@gmail.com";
+instaUser.isLoggedIn = false;
+
+console.log(instaUser);  // Output: { id: "thelite_editx", email: "theprathamesh07@gmail.com", isLoggedIn: false }
+```
+
+### 4. Object Methods
+
+JavaScript objects come with built-in methods. One useful method is `Object.freeze()`, which prevents the modification of object properties.
+
+```javascript
+Object.freeze(instaUser);  // instaUser is now immutable (cannot be modified)
+```
+
+### 5. Nested Objects
+
+Objects can contain other objects as properties, forming a nested structure.
+
+```javascript
+const regularUser = {
+  id: "thelite_code",
+  name: {
+    fname: "Prathamesh"
+  }
+};
+
+console.log(regularUser.name.fname);  // Output: "Prathamesh"
+```
+
+### 6. Combining Objects
+
+There are several ways to combine or merge objects in JavaScript:
+
+- **Using `Object.assign()`**:
+  ```javascript
+  const obj3 = Object.assign({}, obj1, instaUser);  // Merges obj1 and instaUser into a new object obj3
+  ```
+
+- **Using the Spread Operator (`...`)**:
+  ```javascript
+  const mergedObj = { ...instaUser, ...obj3 };
+  console.log(mergedObj);
+  ```
+
+### 7. Objects Inside Arrays
+
+Objects can be stored inside arrays, and you can access them using array indices.
+
+```javascript
+const arr = [
+  { id: 1, name: "Nam" },
+  { lname: "Head" }
+];
+
+console.log(arr[0].name);  // Output: "Nam"
+```
+
+### 8. Checking if a Property Exists in an Object
+
+The `hasOwnProperty()` method checks if a specific property exists in an object.
+
+```javascript
+const arrprop = {
+  id: 101,
+  email: "the"
+};
+
+console.log(arrprop.hasOwnProperty('id'));  // Output: true
+console.log(arrprop.hasOwnProperty('name'));  // Output: false
+```
+
+### 9. Object Destructuring
+
+**Destructuring** is a syntax used to unpack values from arrays or properties from objects into distinct variables. It’s particularly useful when working with APIs.
+
+```javascript
+const course = {
+  name: "JavaScript Basics",
+  id: 101
+};
+
+// Destructuring
+const { name } = course;
+console.log(name);  // Output: "JavaScript Basics"
+```
+
+---
