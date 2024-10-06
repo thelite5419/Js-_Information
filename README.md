@@ -356,7 +356,6 @@ console.log(name);  // Output: "JavaScript Basics"
 ```
 
 ---
----
 
 ## JSON in JavaScript
 
