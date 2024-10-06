@@ -106,109 +106,117 @@ Since both variables point to the same object in the heap, modifying `secVal` al
 - **Non-primitive types** (such as objects) share the same reference, so changes to one variable can affect others referencing the same object.
 
 ---
+## Working with Arrays in JavaScript
 
-## Working with Numbers in JavaScript
+Arrays in JavaScript are dynamic and can hold multiple values of different types, such as numbers, strings, and booleans. They allow for storing, manipulating, and accessing a list of elements in a single variable.
 
-In JavaScript, numbers are an essential data type, and there are several methods to manipulate them. Here, we explore how to handle numbers, convert them to strings, and format them with floating points.
+### 1. Array Initialization
 
-### 1. Simple Number Declaration
+There are different ways to initialize arrays in JavaScript:
 
-You can declare numbers in JavaScript directly using the `const` or `let` keyword. For example:
-```javascript
-const score = 400;
-console.log(score);  // Output: 400
-```
-Here, `score` is a simple number variable with a value of `400`.
+- Using square brackets `[]` (literal notation):
+  ```javascript
+  const myArr = [1, 2, 3, 'a', true];
+  console.log(myArr);  // Output: [1, 2, 3, "a", true]
+  ```
+  This method allows an array to store mixed data types (numbers, strings, booleans, etc.).
 
-### 2. Creating a Number Object
+- Using the `Array` constructor:
+  ```javascript
+  const myArray2 = new Array(1, 2, 3, 4);
+  console.log(myArray2);  // Output: [1, 2, 3, 4]
+  ```
 
-In JavaScript, you can also create a number using the `Number` constructor. This approach allows you to work with numbers as objects, which can provide access to certain methods. However, this is less common than directly declaring numbers.
-```javascript
-const balance = new Number(90);
-console.log(balance);  // Output: [Number: 90]
-```
-The output shows the `Number` object representation, though the value itself is still `90`.
+Arrays in JavaScript are **dynamic**, meaning their size can change, and you can add or remove elements at runtime.
 
-### 3. Converting a Number to a String
+### 2. Shallow Copy (Stack and Heap Reference)
 
-To convert a number to a string, you can use the `.toString()` method. This is useful when you need to treat numeric data as text.
-```javascript
-console.log(balance.toString());  // Output: "90"
-```
-Now, the number `90` has been converted to the string `"90"`.
-
-### 4. Formatting Floating Point Numbers
-
-If you need to control the number of decimal places for a floating-point number, the `.toFixed()` method can be used. This method rounds the number and formats it with a fixed number of decimal places.
+JavaScript arrays are stored in heap memory, meaning when you assign an array to another variable, you’re copying the **reference** (not the actual array). This can lead to unintended behavior when modifying arrays.
 
 Example:
 ```javascript
-let value = 69;
-console.log(value.toFixed(1));  // Output: "69.0"
+let originalArr = [1, 2, 3];
+let copiedArr = originalArr;  // Shallow copy, both point to the same array in heap memory
+copiedArr.push(4);
+console.log(originalArr);  // Output: [1, 2, 3, 4] (modified)
+console.log(copiedArr);    // Output: [1, 2, 3, 4] (same)
 ```
-In this case, `.toFixed(1)` ensures that the value is displayed with one decimal place, even though it's an integer.
 
----
+### 3. Array Methods
 
-## Math Library in JavaScript
+JavaScript provides several built-in methods to work with arrays:
 
-JavaScript provides a built-in **Math** object that contains various methods to perform mathematical operations. It’s commonly used for tasks like rounding numbers, generating random values, and finding the minimum or maximum values.
+1. **`push(value)`**: Adds a value to the end of the array.
+   ```javascript
+   myArr.push(7);
+   console.log(myArr);  // Output: [1, 2, 3, "a", true, 7]
+   ```
 
-### 1. Commonly Used Math Methods
+2. **`pop()`**: Removes the last value from the array.
+   ```javascript
+   myArr.pop();
+   console.log(myArr);  // Output: [1, 2, 3, "a", true]
+   ```
 
-Here’s a list of some of the most commonly used methods in the `Math` object:
+3. **`unshift(value)`**: Inserts a value at the start of the array.
+   ```javascript
+   myArr.unshift(9);
+   console.log(myArr);  // Output: [9, 1, 2, 3, "a", true]
+   ```
+   Note: This operation can be time-consuming because it shifts all elements.
 
-- **`Math.abs(x)`**: Returns the absolute value of a number (i.e., converts negative numbers to positive).
-  ```javascript
-  console.log(Math.abs(-4));  // Output: 4
-  ```
+4. **`shift()`**: Removes the first value from the array.
+   ```javascript
+   myArr.shift();
+   console.log(myArr);  // Output: [1, 2, 3, "a", true]
+   ```
 
-- **`Math.round(x)`**: Rounds a number to the nearest integer.
-  ```javascript
-  console.log(Math.round(3.6));  // Output: 4
-  ```
+5. **`join()`**: Joins the elements of an array into a string.
+   ```javascript
+   let joinedArr = myArr.join('-');
+   console.log(joinedArr);  // Output: "1-2-3-a-true"
+   ```
 
-- **`Math.ceil(x)`**: Rounds a number **up** to the next largest integer.
-  ```javascript
-  console.log(Math.ceil(4.2));  // Output: 5
-  ```
+6. **`slice(start, end)`**: Returns a shallow copy of a portion of an array.
+   ```javascript
+   let slicedArr = myArr.slice(1, 3);
+   console.log(slicedArr);  // Output: [2, 3]
+   ```
 
-- **`Math.floor(x)`**: Rounds a number **down** to the largest integer less than or equal to the given number.
-  ```javascript
-  console.log(Math.floor(4.2));  // Output: 4
-  ```
+7. **`splice(index, numToDelete)`**: Adds/removes elements to/from an array and modifies the original array.
+   ```javascript
+   myArr.splice(1, 2);  // Removes 2 elements starting from index 1
+   console.log(myArr);  // Output: [1, "a", true]
+   ```
 
-- **`Math.random()`**: Generates a random decimal number between `0` and `1` (but not exactly `1`).
-  ```javascript
-  console.log(Math.random());  // Output: 0.345..., a random decimal
-  ```
+8. **`concat(array)`**: Combines two or more arrays into one.
+   ```javascript
+   let arr1 = [1, 2];
+   let arr2 = [3, 4];
+   let combinedArr = arr1.concat(arr2);
+   console.log(combinedArr);  // Output: [1, 2, 3, 4]
+   ```
 
-- **`Math.min(...numbers)`**: Returns the smallest value from a list of numbers.
-  ```javascript
-  console.log(Math.min(10, 20, 5, 7));  // Output: 5
-  ```
+9. **`flat(depth)`**: Flattens nested arrays to the specified depth.
+   ```javascript
+   let nestedArr = [1, [2, [3, [4]]]];
+   console.log(nestedArr.flat(2));  // Output: [1, 2, 3, [4]]
+   ```
 
-- **`Math.max(...numbers)`**: Returns the largest value from a list of numbers.
-  ```javascript
-  console.log(Math.max(10, 20, 5, 7));  // Output: 20
-  ```
+10. **`Array.from(string)`**: Converts a string into an array.
+    ```javascript
+    let str = "hello";
+    let arrFromString = Array.from(str);
+    console.log(arrFromString);  // Output: ['h', 'e', 'l', 'l', 'o']
+    ```
 
-### 2. Using `Math.random()` to Generate a Random Number Between a Range
+### 4. Passing Arrays Inside Arrays
 
-The `Math.random()` method generates a number between `0` and `1`. To get a random number in a specific range (e.g., between 10 and 20), you can combine `Math.random()` with `Math.floor()` and adjust the result to the desired range.
-
-Here’s how you can generate a random number between `10` and `20`:
+You can nest arrays within other arrays, which results in a multi-dimensional array:
 ```javascript
-const min = 10;
-const max = 20;
-let randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
-console.log(randomNum);
+let nestedArray = [[1, 2], [3, 4]];
+console.log(nestedArray);  // Output: [[1, 2], [3, 4]]
 ```
-
-In this code:
-- `Math.random()` generates a random number between `0` and `1`.
-- Multiplying by `(max - min + 1)` stretches that range to include numbers from `10` to `20`.
-- `Math.floor()` rounds the result down to the nearest integer.
-- Finally, adding `min` shifts the range to start from `10`.
+To flatten such nested arrays, you can use the `flat()` method as shown earlier.
 
 ---
