@@ -356,3 +356,181 @@ console.log(name);  // Output: "JavaScript Basics"
 ```
 
 ---
+---
+
+## JSON in JavaScript
+
+JSON (JavaScript Object Notation) is a lightweight data-interchange format. In JSON, all keys must be strings, and it supports data types like arrays, objects, numbers, strings, booleans, and `null`.
+
+### JSON Example:
+```json
+{
+  "name": "ABC",
+  "id": "101"
+}
+```
+
+### API Response in JSON Format:
+APIs often return data in JSON format, which can be either an array of objects or a single object.
+```json
+[
+  { "name": "John", "age": 25 },
+  { "name": "Jane", "age": 30 }
+]
+```
+
+---
+
+## Functions in JavaScript
+
+Functions are blocks of code designed to perform a specific task. They are executed when called.
+
+### Function Example:
+```javascript
+function sum(a, b) {
+  let c = a + b;
+  return c;
+}
+
+console.log(sum(2, 5));  // Output: 7
+```
+
+### Functions Assigned to Variables:
+```javascript
+const result = sum(5, 5);
+console.log(result);  // Output: 10
+```
+
+### Default Parameters in Functions:
+You can assign default values to function parameters, which will be used if no argument is passed.
+```javascript
+function isLoggedIn(user = 'guest') {
+  console.log(`${user} is logged in.`);
+}
+
+isLoggedIn();  // Output: "guest is logged in."
+isLoggedIn('John');  // Output: "John is logged in."
+```
+
+### Working with Objects and Arrays in Functions:
+```javascript
+// Handling an Object
+const user = { id: 101, name: "Prathamesh" };
+
+function handleObject(any) {
+  console.log(`${any.id} is the user ID.`);
+}
+
+handleObject(user);  // Output: "101 is the user ID."
+
+// Handling an Array
+const myArray = [1, 2, 6, 4];
+
+function getTheArray(any) {
+  return any[1];
+}
+
+console.log(getTheArray(myArray));  // Output: 2
+```
+
+---
+
+## Rest Operator (`...`) in Functions
+
+The **rest operator** (`...`) allows functions to accept an indefinite number of arguments as an array. It's useful when the number of arguments is unknown.
+
+### Example:
+```javascript
+function shoppingList(...items) {
+  console.log(items);
+}
+
+shoppingList('Milk', 'Bread', 'Eggs');  // Output: ['Milk', 'Bread', 'Eggs']
+```
+
+---
+
+## Scopes in JavaScript
+
+**Scope** refers to the accessibility of variables in different parts of the program. There are three main types of scopes in JavaScript:
+
+1. **Block Scope** (`let`, `const`): Variables declared with `let` and `const` are only accessible within the block (i.e., within curly braces `{}`).
+2. **Global Scope**: Variables declared with `var` are accessible throughout the entire program.
+3. **Function Scope**: Variables declared inside a function are only accessible within that function.
+
+### Scope Example:
+```javascript
+let a = 10;  // Block scope
+var b = 50;  // Global scope (not recommended)
+const c = 60;  // Block scope and immutable
+
+if (true) {
+  let a = 20;
+  const c = 30;
+  console.log(a, c);  // Output: 20 30 (inside block scope)
+}
+
+console.log(a, c);  // Output: 10 60 (outside block scope)
+```
+
+---
+
+## `this` Keyword in JavaScript
+
+The `this` keyword refers to the current execution context of a function or object. In an object method, `this` refers to the owner object. However, in global contexts, `this` refers to the global object (`window` in browsers).
+
+### Example:
+```javascript
+const user = {
+  userName: 'prathamesh07',
+  id: 'thelite',
+  
+  welcomeMessage: function() {
+    console.log(`Welcome ${this.userName} to the website`);
+    console.log(this);
+  }
+};
+
+user.welcomeMessage();
+
+// Changing the context
+user.userName = "venkatesh";
+user.welcomeMessage();  // Output will use the updated userName
+```
+
+> **Note**: When `this` is used in the Node.js environment, it may behave differently compared to the browser, where `this` refers to the global context (`window`).
+
+---
+
+## Arrow Functions in JavaScript
+
+Arrow functions are a shorter syntax for writing functions in JavaScript. They do not bind their own `this`, but instead inherit it from the parent scope (lexical `this`).
+
+### Basic Arrow Function Syntax:
+```javascript
+const addTwo = (n1, n2) => {
+  return n1 + n2;
+};
+
+console.log(addTwo(12, 25));  // Output: 37
+```
+
+### Arrow Functions and `this`:
+Unlike regular functions, arrow functions do not have their own `this`. This can be useful when you want to inherit the `this` context from the surrounding code.
+
+```javascript
+const user = {
+  userName: 'prathamesh07',
+  id: 'thelite',
+
+  welcomeMessage: () => {
+    console.log(`Welcome ${this.userName} to the website`);  // 'this' does not refer to user
+  }
+};
+
+user.welcomeMessage();  // Output: Welcome undefined to the website
+```
+
+> **Note**: Be careful when using arrow functions as methods inside objects, as they do not bind their own `this`.
+
+---
