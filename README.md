@@ -259,6 +259,79 @@ Since both variables point to the same object in the heap, modifying `secVal` al
 - **Non-primitive types** (such as objects) share the same reference, so changes to one variable can affect others referencing the same object.
 
 ---
+
+## Numbers Fundamentals
+
+## 📌 Basics of Numbers in JavaScript
+
+### Declaring a Number
+You can declare a number variable in JavaScript using `const`, `let`, or `var`:
+```js
+const score = 400;
+console.log(score);
+```
+**Output:**
+```
+400
+```
+
+### Creating a Number Object  
+You can explicitly create a number using the `Number` constructor:
+```js
+const balance = new Number(90);
+console.log(balance);
+```
+**Output:**
+```
+[Number: 90]
+```
+
+## 🛠️ Useful Number Methods
+
+### Converting a Number to a String
+To convert a number into a string, use `.toString()`:
+```js
+const balance = 90;
+console.log(balance.toString());  // "90"
+console.log(typeof balance.toString());  // "string"
+```
+
+### Fixing Decimal Places (`toFixed()`)
+The `toFixed(n)` method rounds a number to `n` decimal places and returns it as a string:
+```js
+const amount = 69.456;
+console.log(amount.toFixed(1));  // "69.5"
+console.log(amount.toFixed(2));  // "69.46"
+```
+
+### Finding the Length of a Number  
+A number itself does not have a `.length` property like a string, but you can convert it to a string and then check its length:
+```js
+const num = 12345;
+console.log(num.toString().length);  // 5
+```
+
+### Precision Control (`toPrecision()`)
+The `toPrecision(n)` method formats a number to a specified total number of **significant** digits:
+```js
+const num = 123.456;
+console.log(num.toPrecision(3));  // "123"
+console.log(num.toPrecision(5));  // "123.46"
+console.log(num.toPrecision(2));  // "1.2e+2" (Scientific notation)
+```
+
+### Formatting Numbers as Locale-Specific Strings (`toLocaleString()`)
+The `toLocaleString()` method converts a number into a localized string representation, useful for formatting currency or large numbers:
+```js
+const salary = 1000000;
+console.log(salary.toLocaleString());  // "1,000,000" (in US format)
+console.log(salary.toLocaleString("de-DE"));  // "1.000.000" (in German format)
+console.log(salary.toLocaleString("en-IN"));  // "10,00,000" (Indian format)
+```
+
+---
+
+
 ## Working with Arrays in JavaScript
 
 Arrays in JavaScript are dynamic and can hold multiple values of different types, such as numbers, strings, and booleans. They allow for storing, manipulating, and accessing a list of elements in a single variable.
