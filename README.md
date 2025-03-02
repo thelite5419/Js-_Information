@@ -1211,7 +1211,7 @@ cpp is the shortcut for C++
 ```
 
 
-### **For Each Loop:**
+## 🔄 `forEach` Method in JavaScript  
 `forEach` is a method that runs a function for each array element.
 ```javascript
 let loop = [1, 2, 3, 4];
@@ -1219,6 +1219,89 @@ loop.forEach(function(item) {
   console.log(item);  // Output: 1, 2, 3, 4
 });
 ```
+
+The `.forEach()` method is used to **iterate** over an array and **execute a function** for each element.  
+
+🔹 **Syntax:**  
+```js
+array.forEach((element, index, array) => {
+  // Code to execute for each element
+});
+```
+
+### ❗ Important Notes about `.forEach()`
+- It does **not return a new array** (unlike `.map()`).
+- It **always returns `undefined`**.
+- It is used when we just want to **perform an action on each item**, rather than create a new array.
+
+---
+
+## 🔥 Return Statement
+
+1. **Expecting `forEach()` to return a value:**  
+   ```js
+   const value = myArray.forEach((item) => {
+     return item;
+   });
+   console.log(value);
+   ```
+   - **Issue:** `.forEach()` **always returns `undefined`**.
+   - **alternative:** Use `.map()` if you need a return value.
+
+2. **Correcting the Usage of `.forEach()`:**  
+   - If we only want to **perform an action** (like logging values), `.forEach()` is correct.
+
+---
+
+## ✅ example
+
+### 🎯 Example 1: Using `forEach()` (No Return Value)
+```js
+const myArray = [1, 2, 3, 4, 5, 6];
+
+myArray.forEach((item) => {
+  console.log(item);
+});
+```
+🔹 **Output:**
+```
+1
+2
+3
+4
+5
+6
+```
+
+👉 If you **need to return a new array**, use `.map()` instead:
+```js
+const newArray = myArray.map((item) => item);
+console.log(newArray); // Output: [1, 2, 3, 4, 5, 6]
+```
+
+---
+
+### 🎯 Example 2: Using `forEach()` with Objects  
+```js
+const objArr = [
+  { name: "Prathamesh", department: "CSE" },
+  { name: "Gauri", department: "CSE" },
+  { name: "Omkar", department: "MECH" },
+];
+
+objArr.forEach((item) => {
+  console.log(`${item.department} has ${item.name} student`);
+});
+```
+🔹 **Output:**
+```
+CSE has Prathamesh student
+CSE has Gauri student
+MECH has Omkar student
+```
+
+---
+
 
 > `forEach` does not return a new array, unlike `map` and `filter`.
 
