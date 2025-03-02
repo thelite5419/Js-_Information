@@ -1115,7 +1115,7 @@ first();
 
 ---
 
-## Event Handling in JavaScript
+# Event Handling in JavaScript
 
 An **event** is an action that occurs in the browser, like a user clicking a button. Events can be handled using **event listeners** and functions.
 
@@ -1130,7 +1130,7 @@ document.getElementById("myButton").addEventListener("click", function() {
 
 ---
 
-## Loops in JavaScript
+# Loops in JavaScript
 
 ### **For Loop:**
 Used for iterating over arrays or running a block of code a specific number of times.
@@ -1162,6 +1162,54 @@ for (const index in myArray) {
   console.log(index);  // Output: 0, 1, 2 (index positions)
 }
 ```
+
+
+🔹 **Example of an Object:**  
+
+```js
+const myObj = {
+  js: "JavaScript",
+  r: "Ruby",
+  cpp: "C++"
+};
+
+console.log(myObj.js); // Output: JavaScript
+console.log(myObj["cpp"]); // Output: C++
+```
+
+---
+
+
+The `for...in` loop is used to **iterate over the keys** of an object.  
+
+🔹 **Syntax:**  
+```js
+for (const key in object) {
+  // Code to execute
+}
+```
+
+✅ **Example:**  
+
+```js
+const myObj = {
+  js: "JavaScript",
+  r: "Ruby",
+  cpp: "C++"
+};
+
+for (const key in myObj) {
+  console.log(`${key} is the shortcut for ${myObj[key]}`);
+}
+```
+
+🔹 **Output:**  
+```
+js is the shortcut for JavaScript
+r is the shortcut for Ruby
+cpp is the shortcut for C++
+```
+
 
 ### **For Each Loop:**
 `forEach` is a method that runs a function for each array element.
