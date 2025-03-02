@@ -898,7 +898,7 @@ shoppingList('Milk', 'Bread', 'Eggs');  // Output: ['Milk', 'Bread', 'Eggs']
 
 ---
 
-## Scopes in JavaScript
+# Scopes in JavaScript
 
 **Scope** refers to the accessibility of variables in different parts of the program. There are three main types of scopes in JavaScript:
 
@@ -982,7 +982,7 @@ user.welcomeMessage();  // Output: Welcome undefined to the website
 > **Note**: Be careful when using arrow functions as methods inside objects, as they do not bind their own `this`.
 
 ---
-## Hoisting in JavaScript
+# Hoisting in JavaScript
 
 **Hoisting** refers to JavaScript's behavior of moving declarations (variables and functions) to the top of their scope before code execution. Only the declarations are hoisted, not the initializations.
 
@@ -1005,7 +1005,7 @@ function greeting() {
 
 ---
 
-## Immediately Invoked Function Expressions (IIFE)
+# Immediately Invoked Function Expressions (IIFE)
 
 An **IIFE** is a function that runs as soon as it is defined. It helps avoid polluting the global scope, which is particularly useful when working with larger applications.
 
@@ -1030,6 +1030,88 @@ one();  // Output: "Without IIFE"
   console.log(`This is the name: ${name}`);
 })('Prathamesh');  // Output: "This is the name: Prathamesh"
 ```
+
+---
+
+# Execution & Call Stack  
+
+## 📌 JavaScript Execution Model  
+
+JavaScript follows a **single-threaded** execution model, meaning it can execute only **one task at a time**. The execution happens in a structured manner using **Execution Contexts** and the **Call Stack**.
+
+---
+
+## 🔥 Execution Context  
+
+An **Execution Context** is an environment in which JavaScript code is executed. There are two types:  
+
+1️⃣ **Global Execution Context (GEC)**  
+   - Created when the script starts running.  
+   - It is associated with the `this` keyword (in browsers, `this` refers to the `window` object).  
+
+2️⃣ **Function Execution Context (FEC)**  
+   - Created when a function is called.  
+   - Each function has its own execution context, which gets pushed onto the Call Stack.  
+
+---
+
+## 🛠️ Execution Process  
+
+JavaScript execution happens in **two phases**:  
+
+### 1️⃣ Memory Creation Phase  
+   - Allocates memory for variables and functions.  
+   - Variables are initialized with `undefined`.  
+   - Functions are stored with their full definitions.  
+
+### 2️⃣ Execution Phase  
+   - Executes the code line by line.  
+   - Updates variable values as per their assignments.  
+   - When a function is called, a **new Execution Context** is created.  
+   - When a function finishes execution, its context is removed from the Call Stack.  
+
+---
+
+## 📌 Call Stack  
+
+The **Call Stack** is a **stack data structure** that manages execution contexts.  
+
+✅ **How it Works:**  
+1. The **Global Execution Context (GEC)** is placed at the bottom of the stack.  
+2. When a function is called, its execution context is **pushed** onto the stack.  
+3. If the function calls another function, the new function's context is **pushed** on top.  
+4. When a function finishes execution, its context is **popped** off the stack.  
+5. The stack clears when all functions finish executing.  
+
+🔹 **Example:**  
+
+```js
+function first() {
+  console.log("First function");
+  second();
+}
+
+function second() {
+  console.log("Second function");
+  third();
+}
+
+function third() {
+  console.log("Third function");
+}
+
+first();
+```
+
+✅ **Call Stack Flow:**  
+
+1️⃣ `first()` is called → Pushed onto stack  
+2️⃣ `first()` calls `second()` → `second()` is pushed onto stack  
+3️⃣ `second()` calls `third()` → `third()` is pushed onto stack  
+4️⃣ `third()` finishes execution → **Popped off stack**  
+5️⃣ `second()` finishes execution → **Popped off stack**  
+6️⃣ `first()` finishes execution → **Popped off stack**  
+
 
 ---
 
