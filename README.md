@@ -743,7 +743,68 @@ const { name } = course;
 console.log(name);  // Output: "JavaScript Basics"
 ```
 
+
+## 🛠️ Defining an Object  
+
+```js
+const sym = Symbol("mykey"); // Creating a unique symbol
+
+const course = {
+  name: "The JavaScript Course",
+  id: 101,
+  [sym]: "myvalue" // Using a symbol as a key
+};
+```
+
+✅ **Notes:**  
+- `"name"` is a **string key**, so it must be accessed with dot or bracket notation (`course.name` or `course["name"]`).  
+- **Symbols** cannot be accessed using dot notation (`course.sym` is incorrect). Instead, use bracket notation (`course[sym]`).  
+
 ---
+
+## 🔍 Accessing Object Properties  
+
+```js
+console.log(course.name);  // ✅ Correct: "The JavaScript Course"
+console.log(course["name"]); // ✅ Correct: "The JavaScript Course"
+
+console.log(course[sym]); // ✅ Correct: "myvalue"
+console.log(course.sym);  // ❌ Incorrect: `undefined` (Symbols must be accessed with brackets)
+```
+
+---
+
+## 📌 Adding Methods to an Object  
+
+We can add functions (methods) to an object after its creation.
+
+```js
+course.greet = function() {
+  console.log("Hello, welcome to the course!");
+};
+
+// Calling the function
+console.log(course.greet);   // ✅ Prints function definition
+course.greet();              // ✅ Output: "Hello, welcome to the course!"
+```
+
+---
+
+## 📌 Using `this` in an Object Method  
+
+Using `this` refers to the current object, allowing us to access properties dynamically.
+
+```js
+course.greet = function() {
+  console.log(`Hello, welcome to ${this.name}!`);
+};
+
+console.log(course.greet); // ✅ Prints function definition
+course.greet();            // ✅ Output: "Hello, welcome to The JavaScript Course!"
+```
+
+---
+
 
 # JSON in JavaScript
 
