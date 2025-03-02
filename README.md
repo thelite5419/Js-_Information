@@ -409,6 +409,88 @@ console.log(Math.sqrt(2));   // Output: 1.414
 
 ---
 
+# Dates In JavaScript
+
+## 📌 Introduction to `Date` Object  
+In JavaScript, the `Date` object is used to work with dates and times. You can create a date object using `new Date()`.  
+
+---
+
+## 🛠️ Initializing a Date Object
+
+### 1️⃣ **Current Date and Time**
+The `new Date()` constructor creates a date object with the current date and time.
+```js
+let myDate = new Date();
+console.log(myDate.toString());  
+```
+**Output Example:**
+```
+Wed Feb 28 2024 12:34:56 GMT+0530 (India Standard Time)
+```
+
+### 2️⃣ **Formatted Date Strings**
+| Method | Description | Example Output |
+|--------|------------|----------------|
+| `.toString()` | Returns the full date & time as a string | `Wed Feb 28 2024 12:34:56 GMT+0530 (IST)` |
+| `.toDateString()` | Returns only the date in a readable format | `Wed Feb 28 2024` |
+| `.toLocaleString()` | Returns date & time formatted based on the user's locale | `2/28/2024, 12:34:56 PM` |
+| `.toLocaleDateString()` | Returns only the date in a locale-specific format | `2/28/2024` |
+| `.toISOString()` | Returns the date in ISO 8601 format (useful for databases) | `2024-02-28T07:04:56.789Z` |
+
+Example:
+```js
+console.log(myDate.toDateString());      // "Wed Feb 28 2024"
+console.log(myDate.toLocaleString());    // "2/28/2024, 12:34:56 PM"
+console.log(myDate.toISOString());       // "2024-02-28T07:04:56.789Z"
+```
+
+---
+
+## 📆 Creating Specific Dates  
+
+### 1️⃣ **Creating a Date with Year, Month, and Day**
+```js
+const newDate = new Date(2024, 1, 5);  // February 5, 2024 (Month starts from 0)
+console.log(newDate.toLocaleString());  // "2/5/2024, 12:00:00 AM"
+console.log(newDate.toDateString());    // "Mon Feb 05 2024"
+```
+✅ **Note:**  
+- Months in JavaScript start from `0` (January = `0`, February = `1`, etc.).
+
+### 2️⃣ **Creating a Date from a String (YYYY-MM-DD)**
+```js
+const newDateIndia = new Date("2004-01-05"); // January 5, 2004
+console.log(newDateIndia.toLocaleString());  // "1/5/2004, 12:00:00 AM"
+console.log(newDateIndia.toDateString());    // "Mon Jan 05 2004"
+```
+
+---
+
+## 📌 Extracting Date Components  
+
+### 1️⃣ **Getting Specific Parts of a Date**
+```js
+let singleDate = new Date();
+
+console.log(singleDate.getTime());        // Returns timestamp (milliseconds since 1970)
+console.log(singleDate.getDay());         // Returns day of the week (0 = Sunday, 1 = Monday, ..., 6 = Saturday)
+console.log(singleDate.getMonth() + 1);   // Returns month (Add 1 since months start from 0)
+console.log(singleDate.getFullYear());    // Returns full year
+console.log(singleDate.getTimezoneOffset()); // Returns the difference between UTC and local time in minutes
+```
+
+### 2️⃣ **Displaying a Custom Date Format**
+```js
+console.log(`Today's date is ${singleDate.getDate()} and the current month is ${singleDate.getMonth() + 1}`);
+```
+**Example Output:**
+```
+Today's date is 28 and the current month is 2
+```
+
+
+---
 
 
 # Working with Arrays in JavaScript
@@ -740,7 +822,7 @@ console.log(getTheArray(myArray));  // Output: 2
 
 ---
 
-# Rest Operator (`...`) in Functions
+## Rest Operator (`...`) in Functions
 
 The **rest operator** (`...`) allows functions to accept an indefinite number of arguments as an array. It's useful when the number of arguments is unknown.
 
