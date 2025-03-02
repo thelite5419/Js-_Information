@@ -332,6 +332,85 @@ console.log(salary.toLocaleString("en-IN"));  // "10,00,000" (Indian format)
 ---
 
 
+## JavaScript Math Library 
+
+## 📌 Introduction to `Math` Object  
+The `Math` object in JavaScript is a **built-in library** that provides mathematical constants and functions. Unlike other objects, `Math` is **not a constructor**, so you don't need to create an instance of it.
+
+---
+
+## 🛠️ Useful Math Methods
+
+### 1️⃣ **Absolute Value (`Math.abs()`)**
+Converts a negative number to positive:
+```js
+console.log(Math.abs(-4));  // Output: 4
+console.log(Math.abs(10));  // Output: 10
+```
+
+---
+
+### 2️⃣ **Rounding Methods**  
+
+| Method          | Description                     | Example  | Output |
+|---------------|--------------------------------|---------|--------|
+| `Math.round()` | Rounds to the nearest integer | `Math.round(3.6)` | `4` |
+| `Math.ceil()`  | Rounds up to the nearest integer | `Math.ceil(4.2)`  | `5` |
+| `Math.floor()` | Rounds down to the nearest integer | `Math.floor(4.9)` | `4` |
+
+Example:
+```js
+console.log(Math.round(3.6));  // 4
+console.log(Math.ceil(4.2));   // 5
+console.log(Math.floor(4.9));  // 4
+```
+
+---
+
+### 3️⃣ **Generating Random Numbers (`Math.random()`)**
+Generates a random number between `0` and `1`:
+```js
+console.log(Math.random());  // Example output: 0.53423
+```
+
+**Generating a Random Number Between a Range (10 to 20)**:
+```js
+const min = 10;
+const max = 20;
+console.log(Math.floor(Math.random() * (max - min + 1)) + min);
+```
+✅ **Explanation**:
+1. `Math.random()` generates a value between `0` and `1`.
+2. Multiplying it by `(max - min + 1)` scales it to the range.
+3. `Math.floor()` ensures the final value is an integer.
+4. Adding `min` shifts the range from `0 to (max-min)` → `min to max`.
+
+---
+
+### 4️⃣ **Finding Minimum & Maximum Values**
+- **`Math.min()`** → Returns the smallest value from a list of numbers.
+- **`Math.max()`** → Returns the largest value from a list of numbers.
+
+Example:
+```js
+console.log(Math.min(3, 5, 1, 8, 2));  // Output: 1
+console.log(Math.max(3, 5, 1, 8, 2));  // Output: 8
+```
+
+---
+
+### 5️⃣ **Square Root (`Math.sqrt()`)**
+The `Math.sqrt()` method returns the square root of a number.
+```js
+console.log(Math.sqrt(16));  // Output: 4
+console.log(Math.sqrt(25));  // Output: 5
+console.log(Math.sqrt(2));   // Output: 1.414
+```
+
+---
+
+
+
 ## Working with Arrays in JavaScript
 
 Arrays in JavaScript are dynamic and can hold multiple values of different types, such as numbers, strings, and booleans. They allow for storing, manipulating, and accessing a list of elements in a single variable.
