@@ -262,7 +262,7 @@ Since both variables point to the same object in the heap, modifying `secVal` al
 
 ## Numbers Fundamentals
 
-## 📌 Basics of Numbers in JavaScript
+### 📌 Basics of Numbers in JavaScript
 
 ### Declaring a Number
 You can declare a number variable in JavaScript using `const`, `let`, or `var`:
@@ -334,7 +334,7 @@ console.log(salary.toLocaleString("en-IN"));  // "10,00,000" (Indian format)
 
 ## JavaScript Math Library 
 
-## 📌 Introduction to `Math` Object  
+### 📌 Introduction to `Math` Object  
 The `Math` object in JavaScript is a **built-in library** that provides mathematical constants and functions. Unlike other objects, `Math` is **not a constructor**, so you don't need to create an instance of it.
 
 ---
