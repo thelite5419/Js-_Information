@@ -1,6 +1,6 @@
 # JavaScript Information README
 
-## JavaScript Data Types
+# JavaScript Data Types
 
 JavaScript has **8 data types**:
 
@@ -151,7 +151,7 @@ let car = ""; // The value is "", the typeof is "string"
 
 ---
 
-## JavaScript String Manipulation and Methods
+# JavaScript String Manipulation and Methods
 
 ### 1\. String Interpolation (Template Literals)
 
@@ -210,7 +210,7 @@ let result = str.split('-');  // ['my', 'name', 'is']
 ```
 ---
 
-## Stack and Heap Memory in JavaScript
+# Stack and Heap Memory in JavaScript
 
 In JavaScript, memory is managed using two main types of storage: **stack** and **heap**. Each plays a critical role in how variables are stored and accessed, depending on whether the data is primitive or non-primitive.
 
@@ -260,7 +260,7 @@ Since both variables point to the same object in the heap, modifying `secVal` al
 
 ---
 
-## Numbers Fundamentals
+# Numbers Fundamentals
 
 ### 📌 Basics of Numbers in JavaScript
 
@@ -332,7 +332,7 @@ console.log(salary.toLocaleString("en-IN"));  // "10,00,000" (Indian format)
 ---
 
 
-## JavaScript Math Library 
+# JavaScript Math Library 
 
 ### 📌 Introduction to `Math` Object  
 The `Math` object in JavaScript is a **built-in library** that provides mathematical constants and functions. Unlike other objects, `Math` is **not a constructor**, so you don't need to create an instance of it.
@@ -411,7 +411,7 @@ console.log(Math.sqrt(2));   // Output: 1.414
 
 
 
-## Working with Arrays in JavaScript
+# Working with Arrays in JavaScript
 
 Arrays in JavaScript are dynamic and can hold multiple values of different types, such as numbers, strings, and booleans. They allow for storing, manipulating, and accessing a list of elements in a single variable.
 
@@ -525,7 +525,8 @@ console.log(nestedArray);  // Output: [[1, 2], [3, 4]]
 To flatten such nested arrays, you can use the `flat()` method as shown earlier.
 
 ---
-## Working with Objects in JavaScript
+
+# Working with Objects in JavaScript
 
 In JavaScript, **objects** are a fundamental way to group and store data. They are used to represent entities, where properties (key-value pairs) hold information related to that entity.
 
@@ -662,7 +663,7 @@ console.log(name);  // Output: "JavaScript Basics"
 
 ---
 
-## JSON in JavaScript
+# JSON in JavaScript
 
 JSON (JavaScript Object Notation) is a lightweight data-interchange format. In JSON, all keys must be strings, and it supports data types like arrays, objects, numbers, strings, booleans, and `null`.
 
@@ -685,7 +686,7 @@ APIs often return data in JSON format, which can be either an array of objects o
 
 ---
 
-## Functions in JavaScript
+# Functions in JavaScript
 
 Functions are blocks of code designed to perform a specific task. They are executed when called.
 
@@ -739,7 +740,7 @@ console.log(getTheArray(myArray));  // Output: 2
 
 ---
 
-## Rest Operator (`...`) in Functions
+# Rest Operator (`...`) in Functions
 
 The **rest operator** (`...`) allows functions to accept an indefinite number of arguments as an array. It's useful when the number of arguments is unknown.
 
