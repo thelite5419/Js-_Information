@@ -1,3 +1,156 @@
+# JavaScript Information README
+
+## JavaScript Data Types
+
+JavaScript has **8 data types**:
+
+1. **String**
+2. **Number**
+3. **BigInt**
+4. **Boolean**
+5. **Undefined**
+6. **Null**
+7. **Symbol**
+8. **Object**
+
+## The Object Data Type
+The `Object` data type can contain both **built-in objects** and **user-defined objects**:
+
+### Built-in Objects
+- Objects
+- Arrays
+- Dates
+- Maps
+- Sets
+- Typed Arrays (IntArrays, FloatArrays, etc.)
+- Promises
+
+### Examples
+```javascript
+// Numbers:
+let length = 16;
+let weight = 7.5;
+
+// Strings:
+let color = "Yellow";
+let lastName = "Johnson";
+
+// Booleans:
+let x = true;
+let y = false;
+
+// Object:
+const person = {firstName: "John", lastName: "Doe"};
+
+// Array object:
+const cars = ["Saab", "Volvo", "BMW"];
+
+// Date object:
+const date = new Date("2022-03-25");
+```
+
+## The Concept of Data Types
+Data types are important in programming as they determine how variables are handled.
+
+Example:
+```javascript
+let x = 16 + "Volvo";
+```
+JavaScript will treat the number as a string:
+```javascript
+let x = "16" + "Volvo"; // Output: "16Volvo"
+```
+
+JavaScript evaluates expressions from left to right, which can affect the results:
+```javascript
+let x = 16 + 4 + "Volvo"; // Output: "20Volvo"
+let x = "Volvo" + 16 + 4; // Output: "Volvo164"
+```
+
+## JavaScript Dynamic Types
+JavaScript has **dynamic types**, meaning variables can hold different data types:
+```javascript
+let x;       // x is undefined
+x = 5;       // x is now a number
+x = "John";  // x is now a string
+```
+
+## JavaScript Data Types in Detail
+
+### Strings
+```javascript
+let carName1 = "Volvo XC60"; // Double quotes
+let carName2 = 'Volvo XC60'; // Single quotes
+```
+
+### Numbers
+```javascript
+let x1 = 34.00; // With decimals
+let x2 = 34;    // Without decimals
+let y = 123e5;  // 12300000 (Scientific notation)
+let z = 123e-5; // 0.00123
+```
+JavaScript numbers are always **64-bit floating-point**.
+
+### BigInt
+```javascript
+let x = BigInt("123456789012345678901234567890");
+```
+BigInt is used to store integers larger than **2^53 - 1**.
+
+### Booleans
+```javascript
+let x = 5;
+let y = 5;
+let z = 6;
+(x == y); // true
+(x == z); // false
+```
+Booleans are commonly used in **conditional statements**.
+
+### Arrays
+```javascript
+const cars = ["Saab", "Volvo", "BMW"];
+```
+Array indexes are **zero-based** (`cars[0]` is the first element).
+
+### Objects
+```javascript
+const person = {firstName: "John", lastName: "Doe", age: 50, eyeColor: "blue"};
+```
+Objects store properties as **key-value pairs**.
+
+### The `typeof` Operator
+The `typeof` operator returns the type of a variable:
+```javascript
+typeof "John"; // "string"
+typeof 3.14;   // "number"
+typeof true;   // "boolean"
+typeof {};     // "object"
+typeof [];     // "object" (Arrays are objects)
+typeof null;   // "object" (Special case)
+typeof undefined; // "undefined"
+```
+
+### Undefined
+A variable without a value is `undefined`:
+```javascript
+let car;
+console.log(car); // undefined
+```
+Setting a variable to `undefined` explicitly:
+```javascript
+car = undefined;
+```
+
+### Empty Values vs. Undefined
+An **empty string** is different from `undefined`:
+```javascript
+let car = ""; // The value is "", the typeof is "string"
+```
+
+---
+
 ## JavaScript String Manipulation and Methods
 
 ### 1\. String Interpolation (Template Literals)
